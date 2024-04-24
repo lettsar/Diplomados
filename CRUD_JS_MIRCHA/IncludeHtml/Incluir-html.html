@@ -25,6 +25,13 @@
         max-width: 100%;
         height: auto;
       }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    .imgMain {
+        width: 50%;
+      }
       main {
         flex-grow: 1;
       }
@@ -64,9 +71,9 @@
   <script src="./js/include-html.js"></script>    
   </head>
   <body>
-    <div data-include="IncludeHtml/assets/home.html"></div>
-    <main class="container"></main>
-    <div data-include="/assets/footer.html"></div>
+    <div data-include="./assets/header.html"></div>
+    <main data-include="./assets/main.html" class="container" ></main>
+    <div data-include="./assets/footer.html"></div>
     
   </body>
 </html>
