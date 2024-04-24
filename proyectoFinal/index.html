@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://ux.ed.team/css/styles.css?201803301710">
+    <title>EDcursos</title>
+</head>
+<body>
+<div class="ed-grid">
+<h1>EdCursos</h1>
+<form id="formCursos">
+<div class="ed-grid m-grid-4">
+    <div class="form-item">
+    <label>
+        Nombre
+        <input type="text" name="nombre" required>
+    </label>
+  
+</div>
+<div class="form-item">
+    <label>
+        Poster
+        <input type="text" name="poster" required>
+    </label>
+</div>
+<div class="form-item">
+    <label>
+        Clases
+        <input type="number" name="clases" min="1" required>
+    </label>
+</div>
+<div class="form-item m-py-3">
+ <input type="submit" class="button" value="Enviar Cursos">
+  
+</div>
+</div>
+</form>
+
+
+ <div class="ed-grid m-grid-4" id="cursos"></div> 
+
+    <script src="js/index.js" type="module"></script>
+</body>
+</html>
