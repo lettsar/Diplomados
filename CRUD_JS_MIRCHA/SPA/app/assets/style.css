@@ -82,3 +82,29 @@ header > * {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
 }
+.post-page{
+  margin:1rem auto;
+  padding: 1rem;
+  width: 80%;
+  background-color: #eceff1;
+  figure{
+    text-align: center;
+  }
+  aside{
+    margin: auto;
+    width: 60%;
+    text-align: center;
+  }
+  hr{
+    border: thin solid #cfd8dc;
+    margin: 2rem auto;
+    width: 80%;
+  }
+  time{
+    margin: 1rem auto;
+    display: block;
+  }
+  article{
+    padding: 0 2rem ;
+  }
+}
