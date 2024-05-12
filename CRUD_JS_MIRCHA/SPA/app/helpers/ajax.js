@@ -7,7 +7,7 @@ export async function ajax(props){
         cbSuccess(json)
     } catch (error) {
         let message = error.statusText || "Ocurrio Error al Accedes a la API";
-       document.getElementById("root").innerHTML =`
+       document.getElementById("posts").innerHTML =`
        <div class="error">
        <p>Error: ${error.status}:${message}</p>
        </div>

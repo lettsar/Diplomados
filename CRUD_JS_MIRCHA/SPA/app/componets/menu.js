@@ -4,9 +4,11 @@ export function Menu(){
      $menu.innerHTML=`
      <a href="#/">Home</a>
      <apan>-</span>
-     <a href="#/Search">Búsqueda</a>
+     <a href="#/search">Búsqueda</a>
      <apan>-</span>
-     <a href="#/Search">Búsqueda</a>
+     <a href="#/contacto">Contacto</a>
+     <apan>-</span>
+     <a href="#/aprendejs">Aprende JS</a>
      `;
     return $menu
 }
