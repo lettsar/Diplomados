@@ -4,7 +4,7 @@ export function PostCard(props){
     let urlPoster = _embedded["wp:featuredmedia"] ? _embedded["wp:featuredmedia"][0].source_url:"assets/Favicon_Lettsar.png";
     document.addEventListener("click", e=>{
         if(e.target.matches(".post-card a")){
-            const localdt = localStorage.setItem("wpPostId",e.target.dataset.id)
+        localStorage.setItem("wpPostId",e.target.dataset.id)
     
         }
         
@@ -13,7 +13,7 @@ export function PostCard(props){
     return`
     <article class="post-card">
     <img src="${urlPoster}" alt=""></img>
-    <h2>${title.rendered}}</h2>
+    <h2>${title.rendered}</h2>
     <p>
     <time datetime="${date}">${dateFormat}</time>
     <a href="#${slug}" data-id="${id}">Ver Publicacion</a>

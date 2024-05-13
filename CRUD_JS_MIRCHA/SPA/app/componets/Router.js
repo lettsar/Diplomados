@@ -13,7 +13,7 @@ export async function Router() {
   if (!hash || hash === "#/") {
     console.log(hash);
 
-   await ajax({
+    await ajax({
       url: wp_api.POSTS,
       cbSuccess: (posts) => {
         let html = "";
@@ -21,30 +21,30 @@ export async function Router() {
           html += PostCard(post);
           console.log(post);
         });
-       
+
         $main.innerHTML = html;
       },
     });
-
   } else if (hash.includes("#/search")) {
-     $main.innerHTML = "<h2>Seccion del Search</h2>";
- 
+    let query = localStorage.getItem("wpSearch");   
+    if (!query) return false;
+    console.log(`${wp_api.SEARCH}${query}`)
+    await ajax({
+      url: `${wp_api.SEARCH}${query}`,
+      cbSuccess: (search) => {
+        console.log(search);
+      },
+    });
   } else if (hash === "#/contacto") {
-   
     $main.innerHTML = "<h2>Seccion del Contacto</h2>";
-   
-  }else{ 
-    
-   
+  } else {
     await ajax({
       url: `${wp_api.POST}/${localStorage.getItem("wpPostId")}`,
       cbSuccess: (post) => {
-        console.log(post)
-       $main.innerHTML = Post(post)
-      }
-
-    })
+        console.log(post);
+        $main.innerHTML = Post(post);
+      },
+    });
   }
   document.querySelector(".loader").style.display = "none";
-
 }
