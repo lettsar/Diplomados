@@ -18,6 +18,7 @@ export function SearchForm() {
     if (!e.target.matches("input[type='search']")) return false;
     if (!e.target.value) localStorage.removeItem("wpSearch");
   });
+  
   d.addEventListener("submit", (e) => {
     if (!e.target.matches(".search-form")) {
       e.preventDefault();

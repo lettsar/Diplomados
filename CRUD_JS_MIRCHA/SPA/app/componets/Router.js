@@ -2,6 +2,7 @@ import { ajax } from "../helpers/ajax.js";
 import { PostCard } from "./PostCard.js";
 import wp_api from "../helpers/wp_api.js";
 import { Post } from "./Post.js";
+import { SearchCard } from "./searchCard.js";
 
 export async function Router() {
   const d = document;
@@ -10,6 +11,7 @@ export async function Router() {
   let { hash } = location;
   $main.innerHTML = null;
 
+  /////////////////Si se encuentra Home//////////////
   if (!hash || hash === "#/") {
     console.log(hash);
 
@@ -21,20 +23,29 @@ export async function Router() {
           html += PostCard(post);
           console.log(post);
         });
-
         $main.innerHTML = html;
       },
     });
+    /////////////////Si se encuentra Busqueda//////////////
   } else if (hash.includes("#/search")) {
-    let query = localStorage.getItem("wpSearch");   
-    if (!query) return false;
-    console.log(`${wp_api.SEARCH}${query}`)
+    let query = localStorage.getItem("wpSearch");
+    
+    if (!query) {
+      document.querySelector(".loader").style.display = "none";
+      return false;
+    }
     await ajax({
       url: `${wp_api.SEARCH}${query}`,
       cbSuccess: (search) => {
-        console.log(search);
+        let html = "";
+        search.forEach((card) => {
+          html += SearchCard(card);
+          console.log(card);
+        });
+        $main.innerHTML = html;
       },
     });
+    /////////////////Si se encuentra Contacto//////////////
   } else if (hash === "#/contacto") {
     $main.innerHTML = "<h2>Seccion del Contacto</h2>";
   } else {
