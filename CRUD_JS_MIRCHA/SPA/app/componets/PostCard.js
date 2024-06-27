@@ -3,7 +3,7 @@ export function PostCard(props){
     let dateFormat = new Date(date).toLocaleDateString()
     let urlPoster = _embedded["wp:featuredmedia"] ? _embedded["wp:featuredmedia"][0].source_url:"assets/Favicon_Lettsar.png";
    
-    document.addEventListener("click", e=>{
+    document.addEventListener("click", e=>{    
       console.log(e.target)
         if(e.target.matches(".post-card a")){
         localStorage.setItem("wpPostId",e.target.dataset.id)
