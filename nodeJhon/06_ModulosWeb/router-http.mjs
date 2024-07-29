@@ -19,3 +19,4 @@ const server = createServer((req, res) => {
 server.listen(3000, "127.0.0.1", () => {
   console.log("Servidor web en ejecución en http://127.0.0.1:3000");
 });
+ //1:27 snifer
