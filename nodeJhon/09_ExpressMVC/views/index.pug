@@ -1,5 +1,13 @@
 extends layout 
 block content 
-main(class="conteiner")
- 
- 
+   main.container 
+    h1.text-center=title 
+    ul.task-list 
+      if tasks.length===0
+        li 
+          b.text-center No Tienes Tareas por Hacer 
+      else 
+        li
+          each el in tasks 
+            li(class=el.complete?"Completed":"")
+              a(href=`/edit${el.id }`) #{el.title}

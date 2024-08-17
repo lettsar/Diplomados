@@ -3,14 +3,15 @@ import morgan from "morgan";
 import cors from "cors"
 import helmet from "helmet"
 import path from "path";
+import { fileURLToPath } from "url";
 import taskControler from "./controllers/taskControllers.js" 
 import errorsController from "./controllers/errorsController.js";
 
+
 // Rutas de Aplicacion
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-/* const __dirname2 = path.resolve() */
-console.log(__dirname);
-/* console.log(__dirname2); */
+const __dirname = fileURLToPath(new URL ('.',import.meta.url));
+
+console.log(__dirname)
 
 //Iniciamos APP
 const app = express();
@@ -20,6 +21,7 @@ const port = 3000;
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
+//Establece Motor de Plantillas
 app.set('views',path.join(__dirname,'views'))
 app.set('view engine','pug')
 //Carpeta 
